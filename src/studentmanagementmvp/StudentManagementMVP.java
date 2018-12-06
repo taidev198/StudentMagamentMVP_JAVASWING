@@ -5,12 +5,12 @@
  */
 package studentmanagementmvp;
 
-import helper.ConnectDataHelper;
-import studentmanagementmvp.model.DashBoardModel;
-import studentmanagementmvp.model.DashBoardModelImpl;
-import studentmanagementmvp.presenter.DashBoardPresenter;
-import studentmanagementmvp.presenter.DashBoardPresenterImpl;
-import studentmanagementmvp.view.DashBoardViewImpl;
+import database.ConnectDataHelper;
+import model.DashBoardModel;
+import presenter.DashBoardPresenter;
+import view.DashBoardView;
+import presenter.IDashBoardPresenter;
+import model.IDashBoardModel;
 
 /**
  *
@@ -26,10 +26,10 @@ public class StudentManagementMVP {
        java.awt.EventQueue.invokeLater(new Runnable() {
            @Override
            public void run() {
-                DashBoardModel dashBoardModel = new DashBoardModelImpl();
-               DashBoardPresenter    boardPresenter = new DashBoardPresenterImpl();
+                IDashBoardModel dashBoardModel = new DashBoardModel();
+               IDashBoardPresenter    boardPresenter = new DashBoardPresenter();
                boardPresenter.setModel(dashBoardModel);
-               DashBoardViewImpl dashBoardView = new DashBoardViewImpl();
+               DashBoardView dashBoardView = new DashBoardView();
                boardPresenter.setView(dashBoardView);
                boardPresenter.setOnShow(new Runnable() {
                     @Override
